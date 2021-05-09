@@ -4,6 +4,6 @@
 cmake_minimum_required (VERSION 3.8)
 
 # Add source to this project's executable.
-add_executable (Mint8 "Mint8.cpp" "Mint8.h")
+add_executable (Mint8 "mint8.cpp" "mint8.h" "cpu.h" "cpu.cpp" "config.h")
 
 # TODO: Add tests and install targets if needed.
