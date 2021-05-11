@@ -4,21 +4,28 @@
 #pragma once
 
 #include <iostream>
+#include <random>
+
 #include "config.h"
+using namespace std;
 
 class mint8
 {
 public:
-	mint8();
-	void read_file(char const* file_name);
+	void initialize();
+	bool read_file(char const* file_name);
+	unsigned char screen[64 * 32];
+	unsigned char input[16];
+	bool draw_flag;
+	void emulate_cycle();
 private:
-	uint8_t reg_[16]{};
-	uint8_t mem_[4096]{};
-	uint16_t index_{};
-	uint16_t program_count_{};
-	uint8_t delay_timer_{};
-	uint8_t sound_timer_{};
-	uint8_t buttons_[16]{};
-	uint32_t display_[64 * 32]{};
-	uint16_t op_code_;
+	unsigned char reg_[16];
+	unsigned char mem_[4096];
+	unsigned short index_;
+	unsigned short program_count_;
+	unsigned char delay_timer_;
+	unsigned char sound_timer_;
+	unsigned short stack_[16];
+	unsigned short op_code_;
+	unsigned short stack_pointer_;
 };
